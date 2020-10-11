@@ -16,7 +16,7 @@
         <ul class="nav">
           <li class="nav-item">
 
-            <a class="nav-link active" href= "../home"><img src="{{asset('logo.png')}}" alt="logo" width="200w"></a>
+            <a class="nav-link active" href= "home"><img src="{{asset('logo.png')}}" alt="logo" width="200w"></a>
           </li>
         </ul>
         <ul class="nav justify-content-center">
