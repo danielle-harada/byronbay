@@ -24,7 +24,7 @@ class openController extends Controller
     }
 
     public function verProduto(product $produto, seller $produtor){
-      $produtor = seller::where('id', $produto['sellerId'])->first();
+      $produtor = seller::where('user_id', $produto['sellerId'])->first();
         return view ('produto', ['produto'=>$produto], ['produtor'=>$produtor]);
     }
 
