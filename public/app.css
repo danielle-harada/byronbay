@@ -1,0 +1,15 @@
+* {
+    font-family: Andale Mono, monospace !important;
+  }
+  
+  header {
+    background-color: rgb(250, 92, 5);
+    color: white;
+
+    }
+  footer {
+  background-color: rgb(250, 92, 5);
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+}
