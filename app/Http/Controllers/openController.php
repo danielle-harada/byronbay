@@ -39,7 +39,10 @@ class openController extends Controller
     }
 
     public function home(){
-      $produtos = product::all()->random(4);
+      $produtos = product::all();
+      if (sizeof($produtos)>4){
+        $produtos = product::all()->random(4);
+      }
       $produtores = seller::all();
         if (sizeof($produtores) > 3){
           $produtores = seller::all()->random(3);
