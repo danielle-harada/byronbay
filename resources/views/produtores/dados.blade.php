@@ -22,11 +22,11 @@
 
       </div>
       <div class="col-5">
-        <a href="../editar/{{$user->id}}" style="color:black"><h4>Editar dados</h4></a>
+        <a href="../editar/{{Auth::id()}}" style="color:black"><h4>Editar dados</h4></a>
         <br>
-        <a href="../meus_produtos/{{$user->id}}" style="color:black"><h4>Meus produtos</h4></a>
+        <a href="../meus_produtos/{{Auth::id()}}" style="color:black"><h4>Meus produtos</h4></a>
         <br>
-        <a href="../produtos/cadastro/{{$user->id}}" style="color:black"><h4>Cadastrar produto</h4></a>
+        <a href="/produtos/cadastro/{{Auth::id()}}" style="color:black"><h4>Cadastrar produto</h4></a>
       </div>
     </div>
 

@@ -33,7 +33,7 @@
           </tbody>
         </table>
         {{$produtos->links("pagination::bootstrap-4")}}
-        <a href="../home" class="btn" type="button" name="button">Voltar</a>
+        <a href="/produtores/dados/{{Auth::id()}}" class="btn" type="button" name="button">Voltar</a>
       </div>
     </div>
   </div>

@@ -97,7 +97,7 @@
             </div>
           </div>
           <div class="row float-right">
-            <button>class="nav-link" href="ped_ok" >PAGAR</a></button>
+            <button class="nav-link" href="ped_ok" >PAGAR</a></button>
           </div>
         </form>
       </div>

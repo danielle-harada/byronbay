@@ -14,7 +14,7 @@
           <h3 class="alert-heading">Bem-vindo, {{$usuario}}!</h3>
           <p>Cadastro realizado com sucesso!!</p>
         </div>
-        <a class="float-right" href="dados/{{$user->id}}" style="color:black"><h5>Ver meus dados</h5></a>
+        <a class="float-right" href="dados/{{$user->id}}" style="color:black"><h5>LOGIN</h5></a>
       </div>
     </div>
   </div>
