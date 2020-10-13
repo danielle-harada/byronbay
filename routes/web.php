@@ -38,6 +38,7 @@ Route::get('/fale_conosco', function () {
 
 Route::get('/home', 'openController@home');
 
+
 Route::get('/produtos', 'openController@visualizarProdutos');
 
 Route::get('/produto/{produto}','openController@verProduto');

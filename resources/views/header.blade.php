@@ -16,15 +16,15 @@
         <ul class="nav">
           <li class="nav-item">
 
-            <a class="nav-link active" href= "home"><img src="{{asset('logo.png')}}" alt="logo" width="200w"></a>
+            <a class="nav-link active" href= "/home"><img src="{{asset('logo.png')}}" alt="logo" width="200w"></a>
           </li>
         </ul>
         <ul class="nav justify-content-center">
           <li class="nav-item">
-            <a class="nav-link"  href="produtos" style="color: white; font-weight: bold">PRODUTOS</a>
+            <a class="nav-link"  href="/produtos" style="color: white; font-weight: bold">PRODUTOS</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="produtores" style="color: white; font-weight: bold">PRODUTORES</a>
+            <a class="nav-link" href="/produtores" style="color: white; font-weight: bold">PRODUTORES</a>
           </li>
         </ul>
         <ul class="nav justify-content-end">

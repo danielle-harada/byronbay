@@ -26,37 +26,49 @@
             <label for="cpf">CPF</label>
             <input type="text" class="form-control" name="cpf">
           </div>
-          <div class="form-group">
+          <div class="form-row">
+            <div class="form-group col-md-3">
             <label for="cep">CEP</label>
             <input type="text" class="form-control" name="cep">
-          </div>
-          <div class="form-group">
+            </div>
+          <div class="form-group col-md-9">
             <label for="street">Endereço</label>
             <input type="text" class="form-control" name="street">
           </div>
-          <div class="form-group">
+        </div>
+          <div class="form-row">
+            <div class="form-group col-md-2">
             <label for="number">Número</label>
             <input type="text" class="form-control" name="number">
-          </div>
-          <div class="form-group">
+            </div>
+          <div class="form-group col-md-4">
             <label for="adressComp">Complemento</label>
             <input type="text" class="form-control" name="adressComp">
           </div>
-          <div class="form-group">
-            <label for="city">Cidade</label>
-            <input type="text" class="form-control" name="city">
+          <div class="form-group col-md-6">
+            <label for="neighborhood">Bairro</label>
+            <input type="text" class="form-control" name="neighborhood">
           </div>
-          <div class="form-group">
-            <label for="state">Estado</label>
-            <input type="text" class="form-control" name="state">
+        </div>
+          <div class="form-row">
+            <div class="form-group col-md-10">
+              <label for="city">Cidade</label>
+              <input type="text" class="form-control" name="city">
+            </div>
+            <div class="form-group col-md-2">
+              <label for="state">Estado</label>
+              <input type="text" class="form-control" name="state">
+            </div>
           </div>
-          <div class="form-group">
-            <label for="phoneCode1">DDD</label>
-            <input type="number" class="form-control" name="phoneCode1">
-          </div>
-          <div class="form-group">
-            <label for="phone">Telefone/Celular</label>
-            <input type="number" class="form-control" name="phone">
+          <div class="form-row">
+            <div class="form-grou col-md-2">
+              <label for="phoneCode1">DDD</label>
+              <input type="number" class="form-control" name="phoneCode1">
+            </div>
+            <div class="form-group col-md-10">
+              <label for="phone">Telefone/Celular</label>
+              <input type="number" class="form-control" name="phone">
+            </div>
           </div>
           <div class="form-group">
             <label for="email">E-mail</label>
@@ -70,11 +82,15 @@
             <label for="password-confirm">Confirmação de senha</label>
             <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
           </div>
-          <button type="submit" class="btn btn-lg btn-block" name="button">Cadastrar</button>
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary mt-3 px-3 py-2" name="button">Cadastrar</button>
+          </div>
             </form>
           </div>
       </div>
     </div>
+    <script type="text/javascript" src="<?php echo asset('js/cep.js')?>"></script>  <!-- ou asim "{{asset('/app.css')}}"? -->
+    
 
     <!-- MENSAGEM DE ERRO DAS VALIDAÇÕES -->
     @if ($errors->any())

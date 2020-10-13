@@ -25,6 +25,9 @@
     font-weight: bold;
   }
 
+  button {
+    color: rgb(250, 92, 5);
+  }
   .nav-link {
     color: white !important;
   }

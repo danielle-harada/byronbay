@@ -14,12 +14,12 @@
       <div class="col-5">
         <a href="clientes/cadastro">
           <img src="comprador.jpg" alt="" width="100%" height="300w"></a>
-          <h3 class="text-center">COMPRADOR</h3>
+          <h3 class="text-center">QUERO COMPRAR CAFÉ</h3>
         </div>
         <div class="col-5">
           <a href="produtores/cadastro">
             <img src="produtor.jpg" alt="" width="100%" height="300w"></a>
-            <h3 class="text-center">PRODUTOR</h3>
+            <h3 class="text-center">PRODUTOR DE CAFÉ</h3>
           </div>
         </div>
       </div>
