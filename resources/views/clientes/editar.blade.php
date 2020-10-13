@@ -28,27 +28,27 @@
           </div>
           <div class="form-group">
             <label for="cep">CEP</label>
-            <input type="text" class="form-control" name="cep" value="{{$user->costumer->cep}}">
+            <input type="text" class="form-control" name="cep" value="{{$user->costumer->cep}}" id="cep">
           </div>
           <div class="form-group">
             <label for="street">Endereço</label>
-            <input type="text" class="form-control" name="street" value="{{$user->costumer->street}}">
+            <input type="text" class="form-control" name="street" value="{{$user->costumer->street}}" id="street">
           </div>
           <div class="form-group">
             <label for="number">Número</label>
-            <input type="text" class="form-control" name="number" value="{{$user->costumer->number}}">
+            <input type="text" class="form-control" name="number" value="{{$user->costumer->number}}" id="number">
           </div>
           <div class="form-group">
             <label for="adressComp">Complemento</label>
-            <input type="text" class="form-control" name="adressComp" value="{{$user->costumer->adressComp}}">
+            <input type="text" class="form-control" name="adressComp" value="{{$user->costumer->adressComp}}" id="adressComp">
           </div>
           <div class="form-group">
             <label for="city">Cidade</label>
-            <input type="text" class="form-control" name="city" value="{{$user->costumer->city}}">
+            <input type="text" class="form-control" name="city" value="{{$user->costumer->city}}" id="city">
           </div>
           <div class="form-group">
             <label for="state">Estado</label>
-            <input type="text" class="form-control" name="state" value="{{$user->costumer->state}}">
+            <input type="text" class="form-control" name="state" value="{{$user->costumer->state}}" id="state">
           </div>
           <div class="form-group">
             <label for="phoneCode1">DDD</label>
@@ -75,6 +75,7 @@
       </div>
     </div>
   </div>
+  <script type="text/javascript" src="{{asset('/js/cep.js')}}"></script>  
 </body>
  @include('footer')
 

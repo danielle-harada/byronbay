@@ -89,7 +89,7 @@
           </div>
       </div>
     </div>
-    <script type="text/javascript" src="{{asset('/js/cep.js')}}"></script>  <!-- ou asim "{{asset('/app.css')}}"? -->
+    <script type="text/javascript" src="{{asset('/js/cep.js')}}"></script>  
 
 
     <!-- MENSAGEM DE ERRO DAS VALIDAÇÕES -->
