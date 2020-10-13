@@ -29,11 +29,11 @@
           <div class="form-row">
             <div class="form-group col-md-3">
             <label for="cep">CEP</label>
-            <input type="text" class="form-control" name="cep">
+            <input type="text" class="form-control" name="cep" id='cep'>
             </div>
           <div class="form-group col-md-9">
             <label for="street">Endereço</label>
-            <input type="text" class="form-control" name="street">
+            <input type="text" class="form-control" name="street" id='street'>
           </div>
         </div>
           <div class="form-row">
@@ -47,17 +47,17 @@
           </div>
           <div class="form-group col-md-6">
             <label for="neighborhood">Bairro</label>
-            <input type="text" class="form-control" name="neighborhood">
+            <input type="text" class="form-control" name="neighborhood" id='neighborhood'>
           </div>
         </div>
           <div class="form-row">
             <div class="form-group col-md-10">
               <label for="city">Cidade</label>
-              <input type="text" class="form-control" name="city">
+              <input type="text" class="form-control" name="city" id='city'>
             </div>
             <div class="form-group col-md-2">
               <label for="state">Estado</label>
-              <input type="text" class="form-control" name="state">
+              <input type="text" class="form-control" name="state" id='state'>
             </div>
           </div>
           <div class="form-row">
@@ -89,8 +89,8 @@
           </div>
       </div>
     </div>
-    <script type="text/javascript" src="<?php echo asset('js/cep.js')?>"></script>  <!-- ou asim "{{asset('/app.css')}}"? -->
-    
+    <script type="text/javascript" src="{{asset('/js/cep.js')}}"></script>  <!-- ou asim "{{asset('/app.css')}}"? -->
+
 
     <!-- MENSAGEM DE ERRO DAS VALIDAÇÕES -->
     @if ($errors->any())

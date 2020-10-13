@@ -24,19 +24,13 @@
 
     <div>
       <p class="text-uppercase font-weight-bold">Renato </p>
-      <a href="#">LinkedIn</a>
+      <a href="https://www.linkedin.com/in/renatocurio/">LinkedIn</a>
       <hr>
     </div>
 
     <div>
       <p class="text-uppercase font-weight-bold">Eduardo</p>
-      <a href="#">LinkedIn</a>
-      <hr>
-    </div>
-
-    <div>
-      <p class="text-uppercase font-weight-bold">Matheus</p>
-      <a href="#">LinkedIn</a>
+      <a href="https://www.linkedin.com/in/eduardocbonini/">LinkedIn</a>
       <hr>
     </div>
 

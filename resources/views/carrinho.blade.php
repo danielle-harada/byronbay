@@ -94,11 +94,6 @@
   <input type="hidden" name="id">
 </form>
 
-@push('scripts')
-  <script type="text/javascript" src="/js/carrinho.js"></script>
-@endpush
-
-
 <script type="text/javascript">
 function carrinhoRemoverProduto (idpedido, idproduto, item){
   $('#form-remover-produto input[name="order_id"]').val(idpedido);
@@ -115,5 +110,5 @@ function carrinhoAdicionarProduto (idproduto) {
 
 
 </body>
-
+@include('footer')
 </html>
