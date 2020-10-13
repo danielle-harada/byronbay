@@ -6,104 +6,114 @@
   <title>Carrinho</title>
 </head>
 <body>
-  <img src="cafezinho.jpg" alt="padrao" width="100%" height="110w">
+  <img src="{{asset('cafezinho.jpg')}}" alt="padrao" width="100%" height="110w">
   <div class="container">
     <div class="row">
       <div class="col-lg-6">
         <h2 class="text-center">Meu pedido</h2>
+        @forelse ($orders as $order)
+        <h5>Pedido: {{$order->id}}</h5>
+        <h5>Pedido: {{$order->created_at->format('d/m/Y H:i')}}</h5>
         <table class="table text-center">
           <thead>
             <tr class="font-weight-bold">
-              <th scope="col">Item</th>
               <th scope="col">Quantidade</th>
-              <th scope="col">Valor</th>
-              <th scope="col"></th>
+              <th scope="col">Produto</th>
+              <th scope="col">Valor Unit.</th>
+              <th scope="col">Total</th>
             </tr>
           </thead>
           <tbody>
-            <td>Café bla bla</td>
-            <td>1</td>
-            <td>R$19,90</td>
-            <td><a href="#">Excluir</a></td>
+            @php
+              $total = 0;
+            @endphp
+            @foreach ($order->pedido as $pedido)
+            <tr>
+              <td class="center-align">
+                <div class="center-align">
+                  <a href="#" onclick="carrinhoRemoverProduto(
+                    {{$order->id}}, {{$pedido->product_id}}, 1)">
+                  <input class="btn btn-small" type="button" id="minus" value='-'></a>
+                  <span>{{$pedido->quant}}</span>
+                  <a href="#" onclick="carrinhoAdicionarProduto(
+                    {{$pedido->product_id}})">
+                  <input class="btn btn-small" type="button" id="plus" value='+'></a>
+                </div>
+                  <a href="#" style="font-weight: normal" onclick="carrinhoRemoverProduto(
+                    {{$order->id}}, {{$pedido->product_id}}, 0)">Remover produto</a>
+              </td>
+              <td>{{$pedido->produto->productName}}</td>
+              <td>R$ {{$pedido->produto->price}}</td>
+              @php
+                $total_produto = $pedido->total;
+                $total += $total_produto;
+              @endphp
+              <td>R$ {{ $total_produto}}</td>
+            </tr>
+            @endforeach
           </tbody>
         </table>
-      </div>
+          <a class="btn" href="/produtos">Continuar comprando</a>
+
+    </div>
       <div class="col-6">
         <div class="row">
-          <div class="col-6">
-            <h4 class="text-right">Total do pedido: </h4>
-          </div>
-          <div class="col-6">
-            <h4 class="text-left">R$ 19,90</h4>
-          </div>
-          <br>
+            <h5 class="text-right">Total do pedido: R$ {{ number_format($total, 2, ',','.')}} </h5>
         </div>
+        <hr>
         <div class="row">
-          <div class="col-6">
-            <h4 class="text-right">Frete: </h4>
-          </div>
-          <div class="col-6">
-            <h4 class="text-left">R$ 9,90</h4>
-          </div>
+          <form action="/carrinho/concluir" method="post">
+            @csrf
+            <input type="hidden" name="order_id" value="{{$order->id}}">
+            <button type="submit" class="btn" name="button">Concluir compra</button>
+          </form>
         </div>
-        <hr>
-        <div class="row justify-content-center">
-          <h3>Valor total: R$20,90</h3>
-        </div>
-        <hr>
-        <h4 class="mb-3 font-weight-bold">PAGAMENTO</h4>
-        <form class="" action="ped_ok" method="post">
-          <div class="d-block my-3">
-            <div class="custom-control custom-radio">
-              <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
-              <label class="custom-control-label" for="credit">Cartão Crédito</label>
-            </div>
-            <div class="custom-control custom-radio">
-              <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
-              <label class="custom-control-label" for="debit">Cartão Débito</label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6 mb-3">
-              <label for="cc-name">Nome</label>
-              <input type="text" class="form-control" id="cc-name" placeholder="" required>
-              <small class="text-muted">Nome completo idêntico ao cartão</small>
-              <div class="invalid-feedback">
-                Obrigatótio
-              </div>
-            </div>
-            <div class="col-md-6 mb-3">
-             <a><label for="cc-number">Número do cartão</label>
-              <input type="text" class="form-control" id="cc-number" placeholder="" required>
-              <div class="invalid-feedback">
-                Obrigatótio
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-3 mb-3">
-              <label for="cc-expiration">Validade</label>
-              <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
-              <div class="invalid-feedback">
-                Obrigatótio
-              </div>
-            </div>
-            <div class="col-md-3 mb-3">
-              <label for="cc-cvv">CVV</label>
-              <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
-              <div class="invalid-feedback">
-                Obrigatótio
-              </div>
-            </div>
-          </div>
-          <div class="row float-right">
-            <button class="nav-link" href="ped_ok" >PAGAR</a></button>
-          </div>
-        </form>
       </div>
     </div>
   </div>
-</div>
+  @empty
+  <h5>Não há produtos no carrinho</h5>
+  @endforelse
+
+  @if (Session::has('mensagem-sucesso'))
+    <strong>{{Session::get('mensagem-sucesso')}}</strong>
+  @endif
+  @if (Session::has('mensagem-falha'))
+    <strong>{{Session::get('mensagem-falha')}}</strong>
+  @endif
+
+<form id="form-remover-produto" action="/carrinho/remover" method="post">
+  @csrf
+  {{ method_field('DELETE')}}
+  <input type="hidden" name="order_id">
+  <input type="hidden" name="product_id">
+  <input type="hidden" name="item">
+</form>
+<form id="form-adicionar-produto" method="post" action="/carrinho/adicionar">
+  @csrf
+  <input type="hidden" name="id">
+</form>
+
+@push('scripts')
+  <script type="text/javascript" src="/js/carrinho.js"></script>
+@endpush
+
+
+<script type="text/javascript">
+function carrinhoRemoverProduto (idpedido, idproduto, item){
+  $('#form-remover-produto input[name="order_id"]').val(idpedido);
+  $('#form-remover-produto input[name="product_id"]').val(idproduto);
+  $('#form-remover-produto input[name="item"]').val(item);
+  $('#form-remover-produto').submit();
+}
+
+function carrinhoAdicionarProduto (idproduto) {
+  $('#form-adicionar-produto input[name="id"]').val(idproduto);
+  $('#form-adicionar-produto').submit();
+}
+</script>
+
+
 </body>
- @include('footer')
+
 </html>

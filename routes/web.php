@@ -84,8 +84,18 @@ Route::get('/dados/{user}', 'produtoController@verDados');
 Route::get('/produtos/editar/{produto}','produtoController@editar');
 Route::post('/produtos/editar/{produto}','produtoController@atualizar');
 
+Route::get('/carrinho', 'carrinhoController@index');
 
+Route::get('/carrinho/adicionar/', 'carrinhoController@adicionar');
+Route::post('/carrinho/adicionar/', 'carrinhoController@adicionar');
 
+Route::delete('carrinho/remover', 'carrinhoController@remover');
+
+Route::post('/carrinho/concluir','CarrinhoController@concluir');
+Route::get('/carrinho/compras', 'CarrinhoController@compras');
+// Route::get('/carrinho', function () {
+//     return view('carrinho');
+// });
 
 
 Route::get('/pedidos', function () {
@@ -97,9 +107,7 @@ Route::get('/ped_ok', function () {
 });
 
 
-Route::get('/carrinho', function () {
-    return view('carrinho');
-});
+
 
 Route::get('/deletar/{produto}', 'produtoController@deletar');
 

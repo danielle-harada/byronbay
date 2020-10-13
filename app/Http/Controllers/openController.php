@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\seller;
 use App\Models\costumer;
 use App\Models\product;
+use App\Models\order;
 
 
 class openController extends Controller

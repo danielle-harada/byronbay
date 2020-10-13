@@ -17,26 +17,22 @@
         <h3>{{$produto->productName}}</h3>
         <h4>Peso: {{$produto->weight}}g</h4>
         <h4>Moagem: {{$produto->grain}}</h4>
-        <h4>Produtor: {{$produtor->brandName}}</h4>
+        <h4>Produtor: {{$produto->seller->brandName}}</h4>
         <br>
         <p class="text-justify">{{$produto->description}}</p>
       </div>
       <div class="col-4">
         <h3>R$ {{$produto->price}}</h3>
         <hr>
-
-                 <label>Quantidade:</label>
-          <input class="btn" type="button" id="plus" value='-' onclick="process(-1)" />
-          <input id="quant" name="quant" class="text-center" size="1" type="text" value="1" maxlength="5" />
-          <input class="btn" type="button" id="minus" value='+' onclick="process(1)">
-          <div class="row mt-5 justify-content-end">
-
-            <button><a class="nav-link" href="carrinho" >COMPRAR</a></button>
-          </div>
-
+        <form class="" action="/carrinho/adicionar" method="post">
+          @csrf
+          <input type="hidden" name="id" value="{{$produto->id}}">
+          <button class="btn btn-large">COMPRAR</button>
+        </form>
+      </div>
       </div>
     </div>
-  </div>
+
 </body>
 @include('footer')
 </html>

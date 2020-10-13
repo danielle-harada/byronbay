@@ -20,7 +20,7 @@ class products extends Migration
             $table->longText('description', 500);
             $table->integer('weight');
             $table->string('grain',20);
-            $table->decimal('price');
+            $table->decimal('price', 10,2);
             $table->string('photo');
             $table->integer('sellerId');
         });

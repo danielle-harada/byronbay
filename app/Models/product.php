@@ -13,6 +13,12 @@ class product extends Model
 
     public function seller()
     {
-      return $this->belongsTo("App\Model\seller", "id");
+      return $this->belongsTo('App\Models\seller', 'sellerId', 'user_id');
     }
+
+    public function pedido()
+    {
+      return $this->belongsToMany('App\Models\pedido');
+    }
+
 }

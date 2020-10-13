@@ -13,7 +13,7 @@ class seller extends Model
 
     public function product()
     {
-      return $this->hasMany('App\Model\product', "sellerId");
+      return $this->hasMany('App\Models\product', 'sellerId', 'id');
     }
 
     public function user()
