@@ -12,7 +12,7 @@
     <div class="row justify-content-center">
       <div class="col-8">
         <div class="alert alert-success" role="alert">
-          <h3 class="alert-heading text-center">Pedido {{$order}} feito com sucesso!</h3>
+          <h3 class="alert-heading text-center">Pedido feito com sucesso!</h3>
           <br>
           <h4 class="text-center">Obrigado!</h4>
         </div>

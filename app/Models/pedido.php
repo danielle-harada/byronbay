@@ -18,9 +18,12 @@ class pedido extends Model
       return $this->belongsTo('App\Models\product', 'product_id', 'id');
     }
 
-    public function order(){
-    return $this->belongsTo('App\Models\order', 'product_id', 'id');
-  }
+      public function order(){
+      return $this->belongsTo('App\Models\order', 'order_id', 'id');
+    }
 
+    public function produto_item(){
+    return $this->hasMany('App\Models\product', 'id', 'product_id');
+    }
 
 }

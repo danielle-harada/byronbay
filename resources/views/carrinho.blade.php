@@ -54,7 +54,6 @@
           </tbody>
         </table>
           <a class="btn" href="/produtos">Continuar comprando</a>
-
     </div>
       <div class="col-6">
         <div class="row">
@@ -70,7 +69,8 @@
         </div>
       </div>
     </div>
-  </div>
+</div>
+
   @empty
   <h5>Não há produtos no carrinho</h5>
   @endforelse
@@ -95,20 +95,18 @@
 </form>
 
 <script type="text/javascript">
-function carrinhoRemoverProduto (idpedido, idproduto, item){
-  $('#form-remover-produto input[name="order_id"]').val(idpedido);
-  $('#form-remover-produto input[name="product_id"]').val(idproduto);
-  $('#form-remover-produto input[name="item"]').val(item);
-  $('#form-remover-produto').submit();
-}
+  function carrinhoRemoverProduto (idpedido, idproduto, item){
+    $('#form-remover-produto input[name="order_id"]').val(idpedido);
+    $('#form-remover-produto input[name="product_id"]').val(idproduto);
+    $('#form-remover-produto input[name="item"]').val(item);
+    $('#form-remover-produto').submit();
+  }
 
-function carrinhoAdicionarProduto (idproduto) {
-  $('#form-adicionar-produto input[name="id"]').val(idproduto);
-  $('#form-adicionar-produto').submit();
-}
+  function carrinhoAdicionarProduto (idproduto) {
+    $('#form-adicionar-produto input[name="id"]').val(idproduto);
+    $('#form-adicionar-produto').submit();
+  }
 </script>
-
-
 </body>
-@include('footer')
+
 </html>

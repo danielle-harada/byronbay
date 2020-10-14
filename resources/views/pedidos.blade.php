@@ -6,28 +6,39 @@
     <title>Meus pedidos</title>
   </head>
   <body>
-<img src="cafezinho.jpg" alt="padrao" width="100%" height="110w">
+<img src="{{asset('cafezinho.jpg')}}" alt="padrao" width="100%" height="110w">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-8">
-        <h2 class="text-center">Pedido 123</h2>
-        <h4 class="text-right">Data: 20/09/2020</h4>
+      @forelse ($pedido as $pedido)
+        <h2 class="text-center">Pedido {{$pedido->order_id}}</h2>
+        <h4 class="text-right">Data: {{$pedido->created_at->format('d/m/Y')}}</h4>
+
         <table class="table text-center">
           <thead>
             <tr class="font-weight-bold">
-              <th scope="col">Item</th>
-              <th scope="col">Quantidade</th>
+              <th scope="col">Produto</th>
               <th scope="col">Valor</th>
             </tr>
           </thead>
           <tbody>
-              <td>Café bla bla bla</td>
-              <td>1</td>
-              <td>R$19,90</td>
+            @php
+              $total=0;
+            @endphp
+            @foreach ($pedido->produto_item as $pedido_produto)
+            @php
+              $total_produto = $pedido->total;
+              $total += $total_produto;
+            @endphp
+              <td>{{$pedido_produto->productName}}</td>
+              <td>R$ {{$total_produto}}</td>
           </tbody>
         </table>
-        <h3 class="text-right">Valor total: $19,90</h3>
-        <a href="dados_cliente" class="btn" type="button" name="button">Voltar</a>
+        <h3 class="text-right">Valor total: R$ {{$total}}</h3>
+            @endforeach
+        @empty
+        <h5>Não há produtos no carrinho</h5>
+        @endforelse
         </div>
 
       </div>

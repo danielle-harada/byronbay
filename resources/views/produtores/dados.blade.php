@@ -27,6 +27,8 @@
         <a href="../meus_produtos/{{Auth::id()}}" style="color:black"><h4>Meus produtos</h4></a>
         <br>
         <a href="/produtos/cadastro/{{Auth::id()}}" style="color:black"><h4>Cadastrar produto</h4></a>
+        <br>
+        <a href="/meus_pedidos/{{Auth::id()}}" style="color:black"><h4>Meus pedidos</h4></a>
       </div>
     </div>
 

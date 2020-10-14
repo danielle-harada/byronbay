@@ -21,7 +21,7 @@
       <div class="col-5">
         <a href="../editar/{{$user->id}}" style="color:black"><h4>Editar dados</h4></a>
         <br>
-        <a href="meus_pedidos" style="color:black"><h4>Meus pedidos<h4></a>
+        <a href="/meus_pedidos/{{Auth::id()}}" style="color:black"><h4>Meus pedidos<h4></a>
         </div>
       </div>
     </div>

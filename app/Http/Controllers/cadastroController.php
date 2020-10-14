@@ -58,7 +58,7 @@ class cadastroController extends Controller
         $timestamp = date_format(date_create(), 'YmdHism');
         $nomeImg = $request -> file('photo')->getClientOriginalName();
         $save = $request -> file('photo')->storeAs("public/img", $timestamp.$nomeImg);
-        $url='storage/app/public/img/'.$timestamp.$nomeImg;
+        $url='storage/img/'.$timestamp.$nomeImg;
 
         $user = new User();
         $user -> name = $validateData['corpName'];

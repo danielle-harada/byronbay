@@ -22,6 +22,13 @@ class order extends Model
         ->orderBy('product_id', 'desc'); //ultimos criado aparecem primeiro
     }
 
+    public function pedido_produtos_itens(){
+      return $this->hasMany('App\Models\pedido')
+      ->select( \DB::raw('id, order_id, product_id, sum(total) as total, count(1) as quant') )//count pra ver quantos registros tem
+      ->groupBy('order_id') //valor e qtde agrupado por produto
+      ->orderBy('order_id', 'desc'); //ultimos criado aparecem primeiro
+    }
+
     public static function consultaId($where){
       $order = self::where($where) -> first(['id']);
       return !empty($order->id) ? $order->id : null;

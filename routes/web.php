@@ -91,16 +91,10 @@ Route::post('/carrinho/adicionar/', 'carrinhoController@adicionar');
 
 Route::delete('carrinho/remover', 'carrinhoController@remover');
 
-Route::post('/carrinho/concluir','CarrinhoController@concluir');
-Route::get('/carrinho/compras', 'CarrinhoController@compras');
-// Route::get('/carrinho', function () {
-//     return view('carrinho');
-// });
+Route::post('/carrinho/concluir','carrinhoController@concluir');
+Route::get('/meus_pedidos/{user}', 'carrinhoController@compras');
 
-
-Route::get('/pedidos', function () {
-    return view('pedidos');
-});
+Route::get('/pedidos/{order}', 'carrinhoController@verCompra');
 
 Route::get('/ped_ok', function () {
     return view('ped_ok');

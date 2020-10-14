@@ -151,7 +151,7 @@ class carrinhoController extends Controller
       'status' => 'PA'
     ]);
 
-    // $req->session()->flash('mensagem-sucesso','Compra concluída com sucesso');
+  $req->session()->flash('mensagem-sucesso','Compra concluída com sucesso');
 
   return view('/ped_ok',['order'=>$order]);
   }
@@ -162,6 +162,17 @@ class carrinhoController extends Controller
         'user_id' => Auth::id()
     ])->orderBy('created_at','desc')->get();
 
+    $cancelados = order::where([
+        'status' => 'CA',
+        'user_id' => Auth::id()
+    ])->orderBy('updated_at','desc')->get();
 
+    return view ('/meus_pedidos', compact ('compras', 'cancelados'));
   }
+
+  public function VerCompra(pedido $pedido, order $order, product $produto){
+    $pedido = pedido::where('order_id', $order['id'])->get();
+    return view ('/pedidos', compact ('pedido'));
+  }
+
 }

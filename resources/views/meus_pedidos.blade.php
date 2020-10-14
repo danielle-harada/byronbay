@@ -6,12 +6,13 @@
   <title>Meus pedidos</title>
 </head>
 <body>
-  <img src="cafezinho.jpg" alt="padrao" width="100%" height="110w">
+  <img src="{{asset('cafezinho.jpg')}}" alt="padrao" width="100%" height="110w">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-8">
         <h2 class="text-center">Meus pedidos</h2>
-        <table class="table text-center">
+        @forelse ($compras as $pedido)
+          <table class="table text-center">
           <thead>
             <tr class="font-weight-bold">
               <th scope="col">Pedido</th>
@@ -20,12 +21,23 @@
             </tr>
           </thead>
           <tbody>
-            <td>123</td>
-            <td>R$19,90</td>
-            <td><a href="pedidos">Visualizar</a></td>
+            @php
+              $total=0;
+            @endphp
+            @foreach ($pedido->pedido_produtos_itens as $pedido_produto)
+            @php
+              $total_produto = $pedido_produto->total;
+              $total += $total_produto;
+            @endphp
+            <td>{{$pedido->id}}</td>
+            <td>{{$total}}</td>
+            @endforeach
+            <td><a href="/pedidos/{{$pedido->id}}">Visualizar</a></td>
           </tbody>
         </table>
-        <a href="dados_cliente" class="btn" type="button" name="button">Voltar</a>
+        @empty
+        <h5>Não há produtos no carrinho</h5>
+        @endforelse
       </div>
     </div>
   </div>
