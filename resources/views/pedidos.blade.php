@@ -10,10 +10,13 @@
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-8">
+          @if (count($pedido) > 0)
+        <h2 class="text-center">Pedido {{$pedido[0]->order_id}}</h2>
+        <h4 class="text-right">Data: {{$pedido[0]->created_at->format('d/m/Y')}}</h4>
+        @php
+          $total=0;
+        @endphp
       @forelse ($pedido as $pedido)
-        <h2 class="text-center">Pedido {{$pedido->order_id}}</h2>
-        <h4 class="text-right">Data: {{$pedido->created_at->format('d/m/Y')}}</h4>
-
         <table class="table text-center">
           <thead>
             <tr class="font-weight-bold">
@@ -22,9 +25,7 @@
             </tr>
           </thead>
           <tbody>
-            @php
-              $total=0;
-            @endphp
+
             @foreach ($pedido->produto_item as $pedido_produto)
             @php
               $total_produto = $pedido->total;
@@ -34,11 +35,14 @@
               <td>R$ {{$total_produto}}</td>
           </tbody>
         </table>
-        <h3 class="text-right">Valor total: R$ {{$total}}</h3>
             @endforeach
+
         @empty
         <h5>Não há produtos no carrinho</h5>
         @endforelse
+        <h3 class="text-right">Valor total: R$ {{$total}}</h3>
+        @endif
+
         </div>
 
       </div>

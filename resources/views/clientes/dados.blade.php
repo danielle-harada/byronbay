@@ -16,7 +16,7 @@
         <h4>{{$user->costumer->firstName}} {{$user->costumer->lastName}}</h4>
         <h5>E-mail: {{$user->costumer->email}}</h5>
         <h5>Tel: ({{$user->costumer->phoneCode1}}) {{$user->costumer->phone}}</h5>
-        <h5>Endereço: {{$user->costumer->street}}</h5>
+        <h5>Endereço: {{$user->costumer->street}}, {{$user->costumer->number}} - {{$user->costumer->adressComp}}</h5>
       </div>
       <div class="col-5">
         <a href="../editar/{{$user->id}}" style="color:black"><h4>Editar dados</h4></a>

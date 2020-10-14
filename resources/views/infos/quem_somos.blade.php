@@ -23,13 +23,13 @@
     </div>
 
     <div>
-      <p class="text-uppercase font-weight-bold">Renato </p>
+      <p class="text-uppercase font-weight-bold">Renato Curcio</p>
       <a href="https://www.linkedin.com/in/renatocurio/">LinkedIn</a>
       <hr>
     </div>
 
     <div>
-      <p class="text-uppercase font-weight-bold">Eduardo</p>
+      <p class="text-uppercase font-weight-bold">Eduardo Bonini</p>
       <a href="https://www.linkedin.com/in/eduardocbonini/">LinkedIn</a>
       <hr>
     </div>
